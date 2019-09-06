@@ -49,10 +49,10 @@ function ArticleCard(data) {
   const authorImg = document.createElement('img');
   const authorName = document.createElement('span');
 
-  card.classList.add('.card');
-  headline.classList.add('.headline');
-  author.classList.add('.author');
-  imgContainer.classList.add('.img-container');
+  card.classList.add('card');
+  headline.classList.add('headline');
+  author.classList.add('author');
+  imgContainer.classList.add('img-container');
 
   card.append(headline, author);
   author.append(imgContainer, authorName);

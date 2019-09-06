@@ -36,11 +36,27 @@ function Carousel(images) {
     return newImg;
   });
 
-  carousel.classList.add('.carousel');
-  leftButton.classList.add('.left-button');
-  rightButton.classList.add('.right-button');
+  carousel.classList.add('carousel');
+  leftButton.classList.add('left-button');
+  rightButton.classList.add('right-button');
 
   carousel.append(leftButton, ...imagesArr, rightButton);
+
+  /* Functionality
+    As a user:
+    When I click or tap the left button,
+    the Carousel should decrease the current index by 1
+    and the Carousel should display the previous image in the carousel image list
+    and if the current index is 0, the current index should update to the length of the carousel image list - 1
+    and the carousel should display the last image in the carousel image list.
+
+    When I click or tap the right button,
+    the Carousel should increase the current index by 1
+    and the Carousel should display the next image in the carousel image list
+    and if the current index is the length of the carousel image list - 1, the current index should update to 0
+    and the carousel should display the last image in the carousel image list.
+
+  */
 
   return carousel;
 }
