@@ -47,13 +47,16 @@ function ArticleCard(data) {
 
   card.classList.add('.card');
   headline.classList.add('.headline');
-  headline.classList.add('.headline');
   author.classList.add('.author');
   imgContainer.classList.add('.img-container');
 
   card.append(headline, author);
   author.append(imgContainer, authorName);
   imgContainer.appendChild(authorImg);
+
+  headline.textContent = data.headline;
+  authorImg.src = data.authorPhoto;
+  authorName.textContent = data.authorName;
 
   return card;
 }
