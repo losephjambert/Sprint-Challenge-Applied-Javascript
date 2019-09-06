@@ -9,4 +9,5 @@
 //  </div >
 // And add it to the DOM in the .header-container component
 
-function Header() {}
+const HeaderContainer = document.querySelector('.header-container');
+function Header(date, title, temp) {}
