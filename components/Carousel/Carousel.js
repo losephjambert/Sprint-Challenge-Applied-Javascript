@@ -58,10 +58,35 @@ function Carousel(images) {
 
   */
 
+  // Interactivity
   let currentIndex = 0;
   const currentImage = imagesArr[currentIndex];
-  console.log(currentImage);
   currentImage.classList.toggle('active');
+
+  const handleCarouselTransition = (e, images) => {
+    const previousImage = images[currentIndex];
+
+    if (e.target == leftButton) {
+      // move image to the right
+      // decrease the currentIndex by 1
+      // slide new image in from left
+      currentIndex -= 1;
+      currentIndex = currentIndex < 0 ? imagesArr.length - 1 : currentIndex;
+    }
+    if (e.target == rightButton) {
+      // move image to the left
+      // increase the currentIndex by 1
+      // slide new image in from right
+      currentIndex += 1;
+      currentIndex = currentIndex > imagesArr.length - 1 ? 0 : currentIndex;
+    }
+
+    const currentImage = images[currentIndex];
+    currentImage.classList.toggle('active');
+    previousImage.classList.toggle('active');
+  };
+
+  carousel.addEventListener('click', e => handleCarouselTransition(e, imagesArr));
 
   return carousel;
 }
