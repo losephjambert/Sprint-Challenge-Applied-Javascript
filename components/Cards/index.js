@@ -21,15 +21,19 @@
 const CardsContainer = document.querySelector('.cards-container');
 const baseURL = 'https://lambda-times-backend.herokuapp.com/articles';
 
-// axios
-//   .get(baseURL)
-//   .then(res => {
-//     const { articles } = res.data;
-//     console.log(articles);
-//   })
-//   .catch(err => {
-//     console.error(err);
-//   });
+axios
+  .get(baseURL)
+  .then(res => {
+    const { articles } = res.data;
+    for (let subject in articles) {
+      articles[subject].forEach(article => {
+        CardsContainer.appendChild(ArticleCard(article));
+      });
+    }
+  })
+  .catch(err => {
+    console.error(err);
+  });
 
 const stubbedData = {
   headline: 'Bootstrap 5: Get a Sneak Peak at all the New Features',
@@ -60,5 +64,3 @@ function ArticleCard(data) {
 
   return card;
 }
-
-CardsContainer.appendChild(ArticleCard(stubbedData));
