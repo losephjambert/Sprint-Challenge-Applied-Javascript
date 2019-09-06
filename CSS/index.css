@@ -254,10 +254,14 @@ body {
 }
 .carousel {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
   height: 500px;
   position: relative;
-  margin-top: 16px;
   overflow: hidden;
+  margin-top: 16px;
 }
 @media (min-width: 1200px) {
   .carousel {
@@ -295,17 +299,10 @@ body {
   right: 25px;
   transform: translate(0, -50%);
 }
-.carousel .img-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  min-width: 100%;
+.carousel img {
+  width: 100%;
+  display: none;
 }
-.carousel .img-container img {
-  display: inline;
-  min-width: 100%;
-}
-.carousel .img-container img.active {
-  opacity: 0.2;
+.carousel img.active {
+  display: block;
 }
