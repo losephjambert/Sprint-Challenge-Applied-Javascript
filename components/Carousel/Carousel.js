@@ -58,6 +58,11 @@ function Carousel(images) {
 
   */
 
+  let currentIndex = 0;
+  const currentImage = imagesArr[currentIndex];
+  console.log(currentImage);
+  currentImage.classList.toggle('active');
+
   return carousel;
 }
 
