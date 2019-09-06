@@ -24,7 +24,8 @@ const baseURL = 'https://lambda-times-backend.herokuapp.com/articles';
 axios
   .get(baseURL)
   .then(res => {
-    console.log(res);
+    const { articles } = res.data;
+    console.log(articles);
   })
   .catch(err => {
     console.error(err);
