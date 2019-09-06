@@ -17,3 +17,21 @@
 // </div>
 //
 // Create a card for each of the articles and add the card to the DOM.
+
+const CardsContainer = document.querySelector('.cards-container');
+const baseURL = 'https://lambda-times-backend.herokuapp.com/articles';
+
+axios
+  .get(baseURL)
+  .then(res => {
+    console.log(res);
+  })
+  .catch(err => {
+    console.error(err);
+  });
+
+function Card(data) {
+  const card = document.createElement('div');
+
+  return card;
+}
