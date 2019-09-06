@@ -1,10 +1,9 @@
 .carousel {
   .width-100();
-  .flex(center, center);
   height: 500px;
   position: relative;
-  overflow: hidden;
   margin-top: 16px;
+  overflow: hidden;
   @media (min-width: 1200px) {
     width: 1200px;
   }
@@ -35,11 +34,18 @@
     right: 25px;
     transform: translate(0, -50%);
   }
-  img {
-    .width-100();
-    display: none;
-    &.active {
-      display: block;
+  .img-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    min-width: 100%;
+    img {
+      display: inline;
+      min-width: 100%;
+      &.active {
+        opacity: 0.2;
+      }
     }
   }
 }

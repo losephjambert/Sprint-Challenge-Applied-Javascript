@@ -30,17 +30,20 @@ function Carousel(images) {
   const carousel = document.createElement('div');
   const leftButton = document.createElement('div');
   const rightButton = document.createElement('div');
-  const imagesArr = images.map(image => {
+  const imgContainer = document.createElement('div');
+  const imagesArr = [...images, ...images].map(image => {
     const newImg = document.createElement('img');
     newImg.src = image;
     return newImg;
   });
 
   carousel.classList.add('carousel');
+  imgContainer.classList.add('img-container');
   leftButton.classList.add('left-button');
   rightButton.classList.add('right-button');
 
-  carousel.append(leftButton, ...imagesArr, rightButton);
+  imgContainer.append(...imagesArr);
+  carousel.append(leftButton, imgContainer, rightButton);
 
   /* Functionality
     As a user:
@@ -65,6 +68,7 @@ function Carousel(images) {
 
   const handleCarouselTransition = (e, images) => {
     const previousImage = images[currentIndex];
+    let width = imgContainer.clientWidth;
 
     if (e.target == leftButton) {
       // move image to the right
@@ -72,6 +76,8 @@ function Carousel(images) {
       // slide new image in from left
       currentIndex -= 1;
       currentIndex = currentIndex < 0 ? imagesArr.length - 1 : currentIndex;
+      width += width;
+      imgContainer.style.transform = `translateX(${width}px)`;
     }
     if (e.target == rightButton) {
       // move image to the left
@@ -79,6 +85,8 @@ function Carousel(images) {
       // slide new image in from right
       currentIndex += 1;
       currentIndex = currentIndex > imagesArr.length - 1 ? 0 : currentIndex;
+      width -= width;
+      imgContainer.style.transform = `translateX(${-width}px)`;
     }
 
     const currentImage = images[currentIndex];
