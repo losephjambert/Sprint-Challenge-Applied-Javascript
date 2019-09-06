@@ -30,7 +30,7 @@ axios
     console.error(err);
   });
 
-function Card(data) {
+function ArticleCard(data) {
   const card = document.createElement('div');
 
   return card;
