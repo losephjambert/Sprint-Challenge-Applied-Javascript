@@ -30,10 +30,10 @@ function Header(data) {
   return header;
 }
 
-const stubbedData = {
+const headerData = {
   title: 'Lambda Times',
   date: 'SMARCH 28, 2019',
   temperature: '98°',
 };
 
-HeaderContainer.appendChild(Header(stubbedData));
+HeaderContainer.appendChild(Header(headerData));

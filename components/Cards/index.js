@@ -21,18 +21,41 @@
 const CardsContainer = document.querySelector('.cards-container');
 const baseURL = 'https://lambda-times-backend.herokuapp.com/articles';
 
-axios
-  .get(baseURL)
-  .then(res => {
-    const { articles } = res.data;
-    console.log(articles);
-  })
-  .catch(err => {
-    console.error(err);
-  });
+// axios
+//   .get(baseURL)
+//   .then(res => {
+//     const { articles } = res.data;
+//     console.log(articles);
+//   })
+//   .catch(err => {
+//     console.error(err);
+//   });
+
+const stubbedData = {
+  headline: 'Bootstrap 5: Get a Sneak Peak at all the New Features',
+  authorPhoto: './assets/fido.jpg',
+  authorName: 'FIDO WALKSALOT',
+};
 
 function ArticleCard(data) {
   const card = document.createElement('div');
+  const headline = document.createElement('div');
+  const author = document.createElement('div');
+  const imgContainer = document.createElement('div');
+  const authorImg = document.createElement('img');
+  const authorName = document.createElement('span');
+
+  card.classList.add('.card');
+  headline.classList.add('.headline');
+  headline.classList.add('.headline');
+  author.classList.add('.author');
+  imgContainer.classList.add('.img-container');
+
+  card.append(headline, author);
+  author.append(imgContainer, authorName);
+  imgContainer.appendChild(authorImg);
 
   return card;
 }
+
+CardsContainer.appendChild(ArticleCard(stubbedData));
