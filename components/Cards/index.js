@@ -27,7 +27,7 @@ axios
     const { articles } = res.data;
     for (let subject in articles) {
       articles[subject].forEach(article => {
-        CardsContainer.appendChild(ArticleCard(article));
+        CardsContainer.appendChild(ArticleCard(article, subject));
       });
     }
   })
@@ -41,7 +41,7 @@ const stubbedData = {
   authorName: 'FIDO WALKSALOT',
 };
 
-function ArticleCard(data) {
+function ArticleCard(data, subject) {
   const card = document.createElement('div');
   const headline = document.createElement('div');
   const author = document.createElement('div');
@@ -58,6 +58,7 @@ function ArticleCard(data) {
   author.append(imgContainer, authorName);
   imgContainer.appendChild(authorImg);
 
+  card.setAttribute(`data-subject`, subject);
   headline.textContent = data.headline;
   authorImg.src = data.authorPhoto;
   authorName.textContent = data.authorName;

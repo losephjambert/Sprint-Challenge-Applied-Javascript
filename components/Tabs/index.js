@@ -20,10 +20,21 @@ axios
     console.error(err);
   });
 
-function Tab(topic) {
+function Tab(subject) {
   const tab = document.createElement('div');
   tab.classList.add('tab');
-  tab.textContent = topic;
+  tab.textContent = subject;
+  tab.setAttribute(`data-subject`, subject);
+
+  tab.addEventListener('click', e => {
+    const articles = [].slice.call(document.querySelectorAll('.card'));
+    let filtered = articles.filter(
+      article => article.getAttribute('data-subject') !== e.target.getAttribute('data-subject')
+    );
+    filtered.forEach(article => {
+      article.classList.toggle('hide');
+    });
+  });
 
   return tab;
 }
